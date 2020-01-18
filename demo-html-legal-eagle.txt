@@ -1,0 +1,7 @@
+<link rel="stylesheet" type="text/css" href="/content/dam/bc1/schools/law/js/library/rss-feed/blogger-feed.css">
+<script src="/content/dam/bc1/schools/law/js/library/rss-feed/rss-feed-legal-eagle.js"></script>
+<div class="responsive-columns section">
+<div class="clearfix">
+<div class="row" id="blogger">
+
+ </div></div></div>
