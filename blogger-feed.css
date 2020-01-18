@@ -1,10 +1,10 @@
 #blogger {
 	padding:20px;
-	
+
 }
 
 .blogger-item {
-	width:100%; 
+	width:100%;
 	margin:0 auto;
 	box-shadow: 5px 5px 15px #bbb;
 	margin-bottom:20px;
@@ -12,29 +12,29 @@
 
 .blogger-image:hover {
 	opacity:.6;
-	
-	
+
+
 }
 
 .blogger-item img {
 	width:100%
-	
+
 }
 
 .blogger-category {
 	text-align:center;
-	
+
 }
 
 body .int-wrap p.blogger-category {
-	margin-bottom:5px	
-	
+	margin-bottom:5px
+
 }
 
 body .int-wrap #blogger h3 {
 	font-weight:bold;
-	
-} 
+
+}
 
 .blogger-text {
 	padding:20px;
@@ -46,15 +46,15 @@ body .int-wrap #blogger h3 {
 	position: absolute;
     bottom: 20px;
 	color:#9B8F86;
-	
+
 }
 
 @media screen and (min-width: 992px) and (max-width: 1100px) {
-	
+
 	.blogger-category, .blogger-author {
 		display:none;
-		
+
 	}
 
-	
+
 }
