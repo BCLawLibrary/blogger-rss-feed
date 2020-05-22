@@ -104,7 +104,9 @@ function feeds () {
       var ccInner = '';
       if ($content.find('a').addBack('a').length >0 ) {
         $content.find('a').addBack('a').each(function(i, value) {
-           if ($(this).attr('href').includes('jpg' | 'png')) {
+           if ($(this).attr('href').includes('jpg')) {
+           }
+           else if ($(this).attr('href').includes('png')) {
            }
            else {
              outsideLink = $(this).attr('href');
@@ -112,6 +114,7 @@ function feeds () {
            }
         })//end each loop
       };//end if statement
+
       if ($content.find('img').addBack('img').length >0 ) {
           $content.find('img').addBack('img').each(function(i, value) {
              if ($(this).attr('src').includes('cc-logo.png')) {
