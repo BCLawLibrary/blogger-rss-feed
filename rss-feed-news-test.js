@@ -116,7 +116,7 @@ function feeds () {
       };//end if statement
 
       if ($content.find('img').addBack('img').length >0 ) {
-				  console.log($content.find('img').addBack('img'));
+				  var lawlibThumbnail = ""; 
           $content.find('img').addBack('img').each(function(i, value) {
              if ($(this).attr('src').includes('cc-logo.png')) {
                ccLink = $('<div>')
@@ -129,7 +129,9 @@ function feeds () {
                 }
                 $(ccInner)
                   .appendTo(ccLink);
-             }
+             } else if (lawlibThumbnail == "") {
+								lawlibThumbnail = $(this).attr('src');
+						 }
         })//end each loop
       };//end if statement
 
@@ -208,7 +210,9 @@ function feeds () {
         if (e.media$thumbnail){
   				var thumbnail = (e.media$thumbnail.url || '');
   				thumbnail = thumbnail.replace("/s72-c/","/s"+ImageSize+"-c/");
-  			}
+  			} else if (source == 'bclawlibrary') {
+					var thumbnail = (lawlibThumbnail || '');
+				}
   			//Loop through however many default images we have specified.
   			else {
   				var thumbnail=imageOptions[imageOption-1];
