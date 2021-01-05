@@ -116,7 +116,6 @@ function feeds () {
       };//end if statement
 
       if ($content.find('img').addBack('img').length >0 ) {
-				  var lawlibThumbnail = ""; 
           $content.find('img').addBack('img').each(function(i, value) {
              if ($(this).attr('src').includes('cc-logo.png')) {
                ccLink = $('<div>')
@@ -129,12 +128,12 @@ function feeds () {
                 }
                 $(ccInner)
                   .appendTo(ccLink);
-             } else if (!(e.media$thumbnail) || e.media$thumbnail.url.includes('cc-logo.png')) {
-							//catch instances when the post fails to provide a thumbnail
-							e.media$thumbnail = {
-									url: $(this).attr('src')
-							 };
-						}
+						 } else if (!(e.media$thumbnail) || e.media$thumbnail.url.includes('cc-logo.png')) {
+							 //catch instances when the post fails to provide a thumbnail
+							 e.media$thumbnail = {
+									 url: $(this).attr('src')
+								};
+						 }
         })//end each loop
       };//end if statement
 
@@ -213,7 +212,7 @@ function feeds () {
         if (e.media$thumbnail){
   				var thumbnail = (e.media$thumbnail.url || '');
   				thumbnail = thumbnail.replace("/s72-c/","/s"+ImageSize+"-c/");
-  			} 
+  			}
   			//Loop through however many default images we have specified.
   			else {
   				var thumbnail=imageOptions[imageOption-1];
