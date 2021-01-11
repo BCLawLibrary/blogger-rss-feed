@@ -101,7 +101,8 @@ function feeds () {
 			var displayContent = '';
       var outsideLink = '';
       var ccLink = '';
-      var ccInner = '';
+			var ccInner = '';
+			var squatphoto = false;
       if ($content.find('a').addBack('a').length >0 ) {
         $content.find('a').addBack('a').each(function(i, value) {
            if ($(this).attr('href').includes('jpg')) {
@@ -131,7 +132,9 @@ function feeds () {
 						 } else if (!(e.media$thumbnail) || e.media$thumbnail.url.includes('cc-logo.png')) {
 							 //catch instances when the post fails to provide a thumbnail
 							 e.media$thumbnail = {
-									 url: $(this).attr('src')
+									 url: $(this).attr('src'),
+									 width: $(this).attr('width'),
+									 height: $(this).attr('height')
 								};
 						 }
         })//end each loop
@@ -260,6 +263,13 @@ function feeds () {
 					.appendTo(imglink);
 
 					$(imglink).appendTo(innerdiv);
+
+					if (e.media$thumbnail) {
+						if ((e.media$thumbnail.height / e.media$thumbnail.width) < 0.75) {
+							$(innerdiv).addClass('short-thumbnail');
+						};
+					}
+					
 					break;
 				case 'short':
           if (outsideLink != '')
@@ -486,7 +496,7 @@ $grid.imagesLoaded().progress( function() {
 //layout masonry after any change in the post content area. This means that masonry will update when embedded social media posts load even if the posts are in an iframe
 $('.blogger-item').bind("DOMSubtreeModified", function() {
   $grid.masonry('layout');
-  window.setTimeout(function(){$grid.masonry('layout');},500);
+  window.setTimeout(function(){$grid.masonry('layout');},200); //modify delay time to try to reduce errors with loading Insta posts
 });
 $(window).on("scroll", function() {
   $grid.masonry('layout');
