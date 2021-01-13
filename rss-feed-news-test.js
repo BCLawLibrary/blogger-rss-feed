@@ -470,11 +470,11 @@ function feeds () {
 					break;
 			}
 
-	//These might be unnecessary now
+	//These might be unnecessary now - actually it seems to be causing problems with Instagram posts
 	    //remove spacer images (?) not sure if this is still needed
-	    $('.blogger-content-div img, .separator').hide();
+	    //$('.blogger-content-div img, .separator').hide();
 	    //remove styles from the post content
-	    $('.postContent').find('*').removeAttr('style');
+	    //$('.postContent').find('*').removeAttr('style');
 	  }
 	  });
 //end loop
@@ -495,8 +495,8 @@ $grid.imagesLoaded().progress( function() {
 
 //layout masonry after any change in the post content area. This means that masonry will update when embedded social media posts load even if the posts are in an iframe
 $('.blogger-item').bind("DOMSubtreeModified", function() {
-  $grid.masonry('layout');
-  window.setTimeout(function(){$grid.masonry('layout');},200); //modify delay time to try to reduce errors with loading Insta posts
+	$grid.masonry('layout');
+  window.setTimeout(function(){$grid.masonry('layout');},200);
 });
 $(window).on("scroll", function() {
   $grid.masonry('layout');
