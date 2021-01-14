@@ -111,6 +111,11 @@ body .int-wrap #blogger h3.shortPostTitle {
 	background-color: rgba(237,239,239,0.9)
 }
 
+.blogger-item-title.short-thumbnail .blogger-text {
+	position: static;
+	background-color: #edefef;
+}
+
 
 .postContent {
 	margin-bottom: 10px;
@@ -335,7 +340,7 @@ body .int-wrap p.postDate {
 }*/
 
 
-@media (min-width:1747px) {
+@media (min-width:1847px) {
 .grid-item:nth-child(n+12) {
 		display:none;
 	}
@@ -347,7 +352,7 @@ body .int-wrap p.postDate {
 	}
 }
 
-@media (max-width:1746px) and (min-width: 1401px) {
+@media (max-width:1846px) and (min-width: 1501px) {
 .grid-item:nth-child(n+10) {
 		display:none;
 	}
@@ -360,7 +365,7 @@ body .int-wrap p.postDate {
 
 }
 
-@media (max-width:1400px) and (min-width: 1055px) {
+@media (max-width:1500px) and (min-width: 1155px) {
 .grid-item:nth-child(n+8) {
 		display:none;
 	}
@@ -374,7 +379,7 @@ body .int-wrap p.postDate {
 }
 
 
-@media (max-width: 1054px) and (min-width: 710px) {
+@media (max-width: 1154px) and (min-width: 810px) {
 	.grid-sizer, .grid-item {
 		width: 50%;
 	}
@@ -387,7 +392,7 @@ body .int-wrap p.postDate {
 }
 
 
-@media (max-width: 709px) {
+@media (max-width: 809px) {
 	.grid-item:nth-child(n+5) {
 		display:none;
 	}

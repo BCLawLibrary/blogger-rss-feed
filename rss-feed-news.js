@@ -101,7 +101,7 @@ function feeds () {
 			var displayContent = '';
       var outsideLink = '';
       var ccLink = '';
-      var ccInner = '';
+			var ccInner = '';
       if ($content.find('a').addBack('a').length >0 ) {
         $content.find('a').addBack('a').each(function(i, value) {
            if ($(this).attr('href').includes('jpg')) {
@@ -116,7 +116,6 @@ function feeds () {
       };//end if statement
 
       if ($content.find('img').addBack('img').length >0 ) {
-				  var lawlibThumbnail = ""; 
           $content.find('img').addBack('img').each(function(i, value) {
              if ($(this).attr('src').includes('cc-logo.png')) {
                ccLink = $('<div>')
@@ -129,12 +128,16 @@ function feeds () {
                 }
                 $(ccInner)
                   .appendTo(ccLink);
-             } else if (!(e.media$thumbnail) || e.media$thumbnail.url.includes('cc-logo.png')) {
-							//catch instances when the post fails to provide a thumbnail
-							e.media$thumbnail = {
-									url: $(this).attr('src')
-							 };
-						}
+						 } else if (!(e.media$thumbnail) || e.media$thumbnail.url.includes('cc-logo.png')) {
+							  //catch instances when the post fails to provide a thumbnail
+								if (($(this).attr('height')> 100) && ($(this).attr('width') > 100)) {
+									e.media$thumbnail = {
+										url: $(this).attr('src'),
+										width: $(this).attr('width'),
+										height: $(this).attr('height')
+									};
+								}
+						 }
         })//end each loop
       };//end if statement
 
@@ -213,7 +216,7 @@ function feeds () {
         if (e.media$thumbnail){
   				var thumbnail = (e.media$thumbnail.url || '');
   				thumbnail = thumbnail.replace("/s72-c/","/s"+ImageSize+"-c/");
-  			} 
+  			}
   			//Loop through however many default images we have specified.
   			else {
   				var thumbnail=imageOptions[imageOption-1];
@@ -261,6 +264,13 @@ function feeds () {
 					.appendTo(imglink);
 
 					$(imglink).appendTo(innerdiv);
+
+					if (e.media$thumbnail) {
+						if ((e.media$thumbnail.height / e.media$thumbnail.width) < 0.75) {
+							$(innerdiv).addClass('short-thumbnail');
+						};
+					}
+					
 					break;
 				case 'short':
           if (outsideLink != '')
@@ -461,11 +471,11 @@ function feeds () {
 					break;
 			}
 
-	//These might be unnecessary now
+	//These might be unnecessary now - actually it seems to be causing problems with Instagram posts
 	    //remove spacer images (?) not sure if this is still needed
-	    $('.blogger-content-div img, .separator').hide();
+	    //$('.blogger-content-div img, .separator').hide();
 	    //remove styles from the post content
-	    $('.postContent').find('*').removeAttr('style');
+	    //$('.postContent').find('*').removeAttr('style');
 	  }
 	  });
 //end loop
@@ -486,8 +496,8 @@ $grid.imagesLoaded().progress( function() {
 
 //layout masonry after any change in the post content area. This means that masonry will update when embedded social media posts load even if the posts are in an iframe
 $('.blogger-item').bind("DOMSubtreeModified", function() {
-  $grid.masonry('layout');
-  window.setTimeout(function(){$grid.masonry('layout');},500);
+	$grid.masonry('layout');
+  window.setTimeout(function(){$grid.masonry('layout');},200);
 });
 $(window).on("scroll", function() {
   $grid.masonry('layout');
