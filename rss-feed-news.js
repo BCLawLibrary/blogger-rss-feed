@@ -210,7 +210,7 @@ function feeds () {
           else {
             if (e.media$thumbnail){
   			  var thumbnail = (e.media$thumbnail.url || '');
-  			  thumbnail = thumbnail.replace("/s72-c/","/s"+ImageSize+"-c/");
+  			  thumbnail = thumbnail.replace(/(w[0-9]+-h[0-9]+)|(s[0-9]+-c)/,"s"+ImageSize+"-c");
   			}
   			//Loop through however many default images we have specified.
   			else {
