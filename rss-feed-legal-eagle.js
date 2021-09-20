@@ -29,7 +29,7 @@ $(document).ready(function() {
 			var date = new Date(e.updated.$t || Date.now());
 			if (e.media$thumbnail){
 			  thumbnail = (e.media$thumbnail.url || '');
-	 		  thumbnail = thumbnail.replace("/s72-c/","/s"+ImageSize+"-c/");
+	 		  thumbnail = thumbnail.replace(/(w[0-9]+-h[0-9]+)|(s[0-9]+-c)|(s[0-9]+-w[0-9]+-h[0-9]+-c)/,"s"+ImageSize+"-c");
  			}
 			else {
 			  //pull image from post if available
@@ -44,7 +44,7 @@ $(document).ready(function() {
 						};
 						console.log(e.media$thumbnail);
 						thumbnail = e.media$thumbnail.url;
-						thumbnail = thumbnail.replace(/w[0-9]+-h[0-9]+/,"s"+ImageSize+"-c");
+						thumbnail = thumbnail.replace(/(w[0-9]+-h[0-9]+)|(s[0-9]+-c)|(s[0-9]+-w[0-9]+-h[0-9]+-c)/,"s"+ImageSize+"-c");
 					  }
 					}
 				})//end each loop
