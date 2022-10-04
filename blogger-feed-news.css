@@ -320,6 +320,10 @@ body .int-wrap p.postDate {
     content: "\e901";
 }
 
+#morePosts .BCLLnewsletter:before {
+	content: "\f0f6";
+}
+
 
 @media screen and (min-width: 992px) and (max-width: 1100px) {
 /*not in use*/
