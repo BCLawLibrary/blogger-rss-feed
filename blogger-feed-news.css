@@ -278,7 +278,6 @@ body .int-wrap p.postDate {
  	padding: 10px 10px 0 10px;
 }
 #morePosts a:before {
-	content: "\e634";
 	font-family: 'icomoon';
   color: white;
   font-size: 30px;
@@ -312,7 +311,7 @@ body .int-wrap p.postDate {
 	content: "\e60e";
 }
 
-#morePosts .legealEagle:before {
+#morePosts .legalEagle:before {
 	content: "\e634";
 }
 
@@ -322,6 +321,11 @@ body .int-wrap p.postDate {
 
 #morePosts .BCLLnewsletter:before {
 	content: "\f0f6";
+}
+
+#morePosts img {
+	display: block;
+	margin: 0 auto;
 }
 
 
